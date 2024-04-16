@@ -7,11 +7,11 @@ export default {
 <template>
     <header>
         <nav class="navbar">
-            <div class="container-fluid justify-content-start fs-5">
+            <div class="container-fluid justify-content-center justify-content-md-start fs-5">
                 <a class="navbar-brand" href="#">
                     <img src="../assets/img/yu-gi-oh-logo.svg" alt="Yu-Gi-Oh!" width="200px">
                 </a>
-                Yu-Gi-Oh! Api
+                <div class="d-none d-md-block">Yu-Gi-Oh! Api</div>
             </div>
         </nav>
     </header>
@@ -22,5 +22,8 @@ export default {
 
 header {
     background-color: $brand-light;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 </style>

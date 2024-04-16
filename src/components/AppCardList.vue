@@ -1,11 +1,11 @@
 <script>
-import CardCard from './CardCard.vue';
+import AppCard from './AppCard.vue';
 import { store } from '../store';
 
 export default {
     name: 'CardsList',
     components: {
-        CardCard
+        AppCard
     },
     data() {
         return {
@@ -17,9 +17,9 @@ export default {
 
 <template>
     <section class="card-list">
-        <div class="container py-5">
-            <div class="row pb-3 g-3">
-                <CardCard v-for="card in store.cards" :key="card.id" :cardInfo="card"></CardCard>
+        <div class="container pb-5">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 justify-content-center pb-3 g-3">
+                <AppCard v-for="card in store.cards" :key="card.id" :cardInfo="card"></AppCard>
             </div>
         </div>
     </section>

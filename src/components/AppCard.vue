@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'CardCard',
+    name: 'AppCard',
     props: {
         cardInfo: Object
     }
@@ -8,13 +8,13 @@ export default {
 </script>
 
 <template>
-    <div class="ms-card col-6 col-md-4 col-lg-3 col-xl-2">
+    <div class="ms-card col d-flex flex-column">
         <div class="img-container">
             <img :src="cardInfo.card_images[0].image_url_small" :alt="cardInfo.name">
         </div>
-        <div class="text-container d-flex flex-column align-items-center">
+        <div class="text-container d-flex flex-column align-items-center justify-content-between flex-grow-1">
             <div class="name">{{ cardInfo.name }}</div>
-            <div>{{ cardInfo.race }}</div>
+            <div v-if="cardInfo.archetype" class="archetype">{{ cardInfo.archetype }}</div>
         </div>
     </div>
 </template>
@@ -25,16 +25,23 @@ export default {
 .ms-card {
     .img-container {
         img {
+            transition: all 0.5s;
             width: 100%;
+            cursor: pointer;
         }
+
+       
     }
 
     .text-container {
-        height: 15%;
         background-color: $brand-primary;
 
         .name {
             font-size: .875rem;
+        }
+
+        .archetype {
+            color: $brand-light;
         }
     }
 }
